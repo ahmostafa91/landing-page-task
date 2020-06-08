@@ -75,9 +75,7 @@ section {
     list-style: none;
 }
 
-/* logo style */
-
-.logo {
+.brand {
     float: left;
     padding-top: 6px;
     padding-bottom: 3px;
@@ -91,8 +89,8 @@ section {
 .page__header {
     background-color: rgba(0,13,60,1);
 }
-.logo:hover {
-    color: #7fceca;
+.brand:hover {
+    color: #cc1;
 }
 
 .navbar__menu ul li a {
@@ -104,7 +102,7 @@ section {
 }
 
 .navbar__menu ul li a:hover {
-    color: #7fceca;
+    color: #cc1;
 }
 
 .navbar__menu .menu__link {
@@ -115,7 +113,7 @@ section {
     color: #000;
 }
 
-.navbar__menu .menu__link { 
+.navbar__menu .menu__link {
     background: #333;
     color: #fff;
     transition: ease 0.3s all;
@@ -130,73 +128,12 @@ button {
 }
 
 .navbar__menu.scroll a.current {
-    color: #7fceca;
+    color: #cc1;
 }
-
-/* scroll top button styles */
-
-#back-to-top-btn {
-    display: none;
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    font-size: 26px;
-    width: 50px;
-    height: 50px;
-    background-color: #fff;
-    color: #333;
-    cursor: pointer;
-    outline: none;
-    border: 3px solid #333;
-    border-radius: 50%;
-    transition-duration: 0.2s;
-    transition-timing-function: ease-in-out;
-    transition-property: background-color, color;
-    z-index: 99999999999999;
-  }
-  #back-to-top-btn:hover, #back-to-top-btn:focus {
-    background-color: #333;
-    color: #fff;  
-  }
-
-  /* Animations */
-.btnEntrance {
-    animation-duration: 0.5s;
-    animation-fill-mode: both;
-    animation-name: btnEntrance;
-  }
-  
-  /* fadeInUp */
-  @keyframes btnEntrance {
-    from {
-      opacity: 0;
-      transform: translate3d(0, 100%, 0);
-    }
-    to {
-      opacity: 1;
-      transform: translate3d(0, 0, 0);
-    }
-  }
-  
-  .btnExit {
-    animation-duration: 0.25s;
-    animation-fill-mode: both;  
-    animation-name: btnExit;
-  }
-  
-  /* fadeOutDown */
-  @keyframes btnExit {
-    from {
-      opacity: 1;
-    }
-    to {
-      opacity: 0;
-      transform: translate3d(0, 100%, 0);
-    }
-  }
 
 /* Header Styles */
 .page__header {
+    
     position: fixed;
     top: 0;
     width: 100%;
@@ -220,12 +157,13 @@ button {
 .landing__container {
     padding: 1em;
     text-align: left;
+    
 }
 
 @media only screen and (min-width: 35em){
     .landing__container {
         max-width: 50em;
-        padding: 8em;
+        padding: 7em;
     }
 }
 
@@ -233,6 +171,7 @@ section:nth-of-type(even) .landing__container {
     margin-right: 0;
     margin-left: auto;
     text-align: right; 
+    height: 100vh;
 }
 
 /* Background Circles */
@@ -328,8 +267,6 @@ section.your-active-class .landing__container::after {
 	}
 }
 
-/* ------ add responsive ----- */
-
 
 @media(max-width: 991px) {
     .navbar__menu ul{
@@ -349,7 +286,7 @@ section.your-active-class .landing__container::after {
         height: 60px;
     }
     
-    .logo {
+    .brand {
         padding-top: 15px;
     }
     

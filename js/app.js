@@ -11,33 +11,6 @@ newListItem.innerHTML = `<a href="#section1">Section 1</a>
 
 myList.appendChild(newListItem);
 
-// ********** add new section **********
-
-const main = document.getElementsByTagName("main")[0];
-// new section item
-
-let newSecItem = document.createElement("section");
-newSecItem.innerHTML = `
-<section id="section4" data-nav="Section 4">
-<div class="landing__container right">
-  <h2>Section 4</h2>
-  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi fermentum metus faucibus lectus pharetra
-    dapibus. Suspendisse potenti. Aenean aliquam elementum mi, ac euismod augue. Donec eget lacinia ex. Phasellus
-    imperdiet porta orci eget mollis. Sed convallis sollicitudin mauris ac tincidunt. Donec bibendum, nulla eget
-    bibendum consectetur, sem nisi aliquam leo, ut pulvinar quam nunc eu augue. Pellentesque maximus imperdiet
-    elit a pharetra. Duis lectus mi, aliquam in mi quis, aliquam porttitor lacus. Morbi a tincidunt felis. Sed leo
-    nunc, pharetra et elementum non, faucibus vitae elit. Integer nec libero venenatis libero ultricies molestie
-    semper in tellus. Sed congue et odio sed euismod.</p>
-
-  <p>Aliquam a convallis justo. Vivamus venenatis, erat eget pulvinar gravida, ipsum lacus aliquet velit, vel
-    luctus diam ipsum a diam. Cras eu tincidunt arcu, vitae rhoncus purus. Vestibulum fermentum consectetur
-    porttitor. Suspendisse imperdiet porttitor tortor, eget elementum tortor mollis non.</p>
-</div>
-</section>
-`;
-
-main.appendChild(newSecItem);
-
 // ********** responsive Navigation on smaller screens **********
 
 const navbarSwitch = document.querySelector(".navbar-toggler");
@@ -124,3 +97,30 @@ function easeInOutCubic(a, b, c, d) {
 	a -= 2;
 	return c/2*(a*a*a + 2) + b;
 };
+
+/// script for active navigation style scroll
+
+window.addEventListener('scroll', event => {
+  let nav = document.querySelector('.navbar__menu');
+  
+  (window.scrollY >= 1) ? nav.classList.add('scroll') : nav.classList.remove('scroll');
+});
+
+
+window.addEventListener('scroll', () => {
+  let navLinks = document.querySelectorAll('nav ul li a');
+  let fromTop = window.scrollY - 50;
+
+  navLinks.forEach(link => {
+    let section = document.querySelector(link.hash);
+
+    if (
+      section.offsetTop <= fromTop + 55 &&
+      section.offsetTop + section.offsetHeight > fromTop + 55
+    ) {
+      link.classList.add("current");
+    } else {
+      link.classList.remove("current");
+    }
+  });
+});
